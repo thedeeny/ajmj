@@ -1,27 +1,20 @@
-let menu = document.querySelector('#menu-btn');
-let navbar = document.querySelector('.header .navbar');
 
-menu.onclick = () => {
-    menu.classList.toggle('fa-times');
-    navbar.classList.toggle('active');
-}
 
-window.onsroll = () => {
-    menu.classList.remove('fa-times');
-    navbar.classList.remove('active');
-}
+/**
+ * header & go-top-btn active
+ * when window scroll down to 400px
+ */
+const toTop = document.querySelector(".to-top");
 
-let slides = document.querySelectorAll('.home .slide');
-let index = 0;
+window.addEventListener("scroll", () => {
+  if (window.pageYOffset > 100) {
+    toTop.classList.add("active");
+  } else {
+    toTop.classList.remove("active");
+  }
+})
+  
 
-function next() {
-    slides[index].classList.remove('active');
-    index = (index + 1) % slides.length;
-    slides[index].classList.add('active');
-}
 
-function prev() {
-    slides[index].classList.remove('active');
-    index = (index - 1 + slides.length) % slides.length;
-    slides[index].classList.add('active');
-}
+
+
